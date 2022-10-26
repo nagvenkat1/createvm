@@ -1,0 +1,23 @@
+pipeline {
+    agent {label 'JDK11'}
+        stages {
+        stage('vcs') {
+            steps {
+                git branch: 'main', url: 'https://github.com/nagvenkat1/createvm.git'
+            }
+        }
+         stage('create') {
+            steps {
+                sh 'jenkinsfile.sh'
+            }
+         }
+     }
+
+}
+
+
+
+
+
+
+        
