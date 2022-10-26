@@ -9,8 +9,9 @@ pipeline {
          stage('create') {
             steps {
                 sh'curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash'
-                sh'chmod 777 jenkinsfile.sh '
-                sh './jenkinsfile.sh'
+                sh'az group create --name Resource5  --location eastus'
+                sh'az vm create --resource-group Resource5 --name vm1 --image UbuntuLTS --admin-username azure1  --generate-ssh-keys
+                
             }
          }
      }
